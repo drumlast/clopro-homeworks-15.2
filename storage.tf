@@ -1,5 +1,6 @@
 resource "yandex_storage_bucket" "image_bucket" {
-  bucket = var.bucket_name
+  bucket    = var.bucket_name
+  folder_id = var.folder_id
 }
 
 resource "yandex_storage_bucket_grant" "image_bucket_public" {
