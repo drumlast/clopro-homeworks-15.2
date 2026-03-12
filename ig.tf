@@ -28,7 +28,7 @@ locals {
 resource "yandex_compute_instance_group" "lamp_group" {
   name               = "lamp-group"
   folder_id          = var.folder_id
-  service_account_id = null
+  service_account_id = yandex_iam_service_account.ig_sa.id
 
   instance_template {
     platform_id = "standard-v3"
@@ -88,4 +88,13 @@ resource "yandex_compute_instance_group" "lamp_group" {
     target_group_name        = "lamp-target-group"
     target_group_description = "Target group for lamp instance group"
   }
+}
+resource "yandex_iam_service_account" "ig_sa" {
+  name = "lamp-ig-sa"
+}
+
+resource "yandex_resourcemanager_folder_iam_member" "ig_sa_editor" {
+  folder_id = var.folder_id
+  role      = "editor"
+  member    = "serviceAccount:${yandex_iam_service_account.ig_sa.id}"
 }
