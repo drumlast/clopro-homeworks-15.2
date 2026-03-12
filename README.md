@@ -49,7 +49,8 @@ terraform plan
 
 Скриншот:
 
-![terraform plan](img/1.png)
+![terraform plan](img/1-1.png)
+![terraform plan](img/1-2.png)
 
 ---
 
@@ -61,7 +62,8 @@ terraform apply
 
 Скриншот:
 
-![terraform apply](img/2.png)
+![terraform apply](img/2-1.png)
+![terraform apply](img/2-2.png)
 
 ---
 
@@ -83,7 +85,9 @@ curl http://<bucket-name>.storage.yandexcloud.net/<image-file>
 
 Скриншот:
 
-![bucket and image](img/3.png)
+![bucket and image](img/3-1.png)
+![bucket and image](img/3-2.png)
+![bucket and image](img/3-3.png)
 
 ---
 
