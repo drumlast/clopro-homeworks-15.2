@@ -7,7 +7,12 @@ output "image_url" {
 }
 
 output "nlb_ip" {
-  value = tolist(yandex_lb_network_load_balancer.lamp_nlb.listener)[0].external_address_spec[0].address
+  value = one([
+    for listener in yandex_lb_network_load_balancer.lamp_nlb.listener :
+    one([
+      for addr in listener.external_address_spec : addr.address
+    ])
+  ])
 }
 
 output "instance_group_id" {
